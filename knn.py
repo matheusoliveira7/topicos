@@ -39,8 +39,10 @@ tabela = [
 [4.9,2.5,4.5,1.7,"Iris-virginica7"],
 [7.3,2.9,6.3,1.8,"Iris-virginica8"],
 [6.7,2.5,5.8,1.8,"Iris-virginica9"]]
+
 vetor = [1,2,3,7]
 import math
+
 def distanciaEuclidiana(a,b):
     d = 0
     for i,j in zip(a,b):
@@ -51,3 +53,11 @@ def vizinhos(vetor,tabela):
     for i in tabela:
         vizs.append(distanciaEuclidiana(vetor,i[:-1]))
     return vizs
+
+distancias = vizinhos(vetor,tabela)
+ordenadas = distancias[:]
+ordenadas.sort()
+
+for i in range(4):
+    posicao = distancias.index(ordenadas[i])
+    print(tabela[posicao][-1])
